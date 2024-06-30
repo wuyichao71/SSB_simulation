@@ -2,7 +2,8 @@
 
 ## All-Atom Simuation
 
-The representative trajectories of All Atom Simulation are saved at:
+The representative trajectories of All Atom Simulation are saved at:  
+https://doi.org/10.5281/zenodo.12599313
 
 ## Coarse-Grained Simulation
 
