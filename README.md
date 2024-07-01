@@ -2,6 +2,8 @@
 
 ## All-Atom Simuation
 
+The scripts to run All-Atom simulation are in `AA/prod`.  
+
 The representative trajectories of All Atom Simulation are saved at:  
 https://doi.org/10.5281/zenodo.12599313
 
