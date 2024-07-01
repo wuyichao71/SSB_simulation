@@ -1,0 +1,54 @@
+; VARIOUS PREPROCESSING OPTIONS
+define                   =
+
+; RUN CONTROL PARAMETERS
+integrator               = md
+dt                       = 0.002
+nsteps                   = 1000000  
+
+; OUTPUT CONTROL OPTIONS
+nstxout                 = 200000   ; save coordinates every ps
+nstvout                 = 200000   ; save velocities every ps
+nstfout                 = 200000   ; save forces every ps
+nstenergy               = 200000   ; save energies every ps
+nstlog                  = 200000   ; update log file every ps
+nstxout-compressed      = 5000
+compressed-x-grps       = Protein_DNA_Ion
+
+; NEIGHBORSEARCHING PARAMETERS
+nstlist                  = 5
+ns-type                  = Grid
+pbc                      = xyz
+rlist                    = 1.0
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+coulombtype              = PME
+pme_order                = 4    ; cubic interpolation
+fourierspacing           = 0.16 ; grid spacing for FFT
+rcoulomb                 = 1.0
+vdw-type                 = Cut-off
+rvdw                     = 1.0
+
+; Temperature coupling  
+Tcoupl                   = v-rescale
+tc-grps                  = Protein  Non-Protein
+tau_t                    = 0.1      0.1
+ref_t                    = 300      300
+
+; Pressure coupling     
+Pcoupl                   = Berendsen
+Pcoupltype               = Isotropic
+tau_p                    = 1.0
+compressibility          = 4.5e-5
+ref_p                    = 1.0
+refcoord_scaling         = COM
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = no
+
+; OPTIONS FOR BONDS 
+constraints              = h-bonds
+continuation             = yes          ; continuation from NVT
+constraint_algorithm     = lincs        ; holonomic constraints
+lincs_iter               = 1            ; accuracy of LINCS
+lincs_order              = 4            ; also related to accuracy
